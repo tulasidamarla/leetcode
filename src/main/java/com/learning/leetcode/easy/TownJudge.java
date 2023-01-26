@@ -36,7 +36,6 @@ public class TownJudge {
             netTrustGains[i[0]]--;
             netTrustGains[i[1]]++;
         }
-        //Arrays.stream(netTrustGains).forEach(System.out::println);
         int judge = -1;
         for (int i = 1; i <= n; i++) {
             if (netTrustGains[i] == n - 1) {
