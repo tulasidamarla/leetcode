@@ -21,3 +21,28 @@
 - In our code, we have used netTrustGains array for this task. Each index i of this array shows the difference value for ith person.
 - After traversing trust array, we will run a loop for each person from 1 to n and check if any person has the difference value = n-1.
 - If such a person is found then we will return him else we will return -1.
+
+### code
+
+```
+/**
+ * @param n maxValue
+ * @param trust two dimensional array input
+ * @return
+ */
+public static int findJudge(int n, int[][] trust) {
+        int[] netTrustGains = new int[n + 1];
+        for (int[] i : trust) {
+            netTrustGains[i[0]]--;
+            netTrustGains[i[1]]++;
+        }
+        //Arrays.stream(netTrustGains).forEach(System.out::println);
+        int judge = -1;
+        for (int i = 1; i <= n; i++) {
+            if (netTrustGains[i] == n - 1) {
+                judge = i;
+            }
+        }
+        return judge;
+    }
+```

@@ -1,8 +1,5 @@
 package com.learning.leetcode.easy;
 
-import java.lang.*;
-import java.util.Arrays;
-
 public class TownJudge {
 
     public static void main(String args[]) {
@@ -20,8 +17,19 @@ public class TownJudge {
         n = 3;
         trust = new int[][]{{1, 3}, {2, 3}, {3, 1}};
         System.out.println("found judge " + findJudge(n, trust));
+
+        //Test case 4
+        n = 4;
+        trust = new int[][]{{1,3},{1,4},{2,3},{2,4},{4,3}};
+        System.out.println("found judge " + findJudge(n, trust));
     }
 
+
+    /**
+     * @param n maxValue
+     * @param trust two dimensional array input
+     * @return
+     */
     public static int findJudge(int n, int[][] trust) {
         int[] netTrustGains = new int[n + 1];
         for (int[] i : trust) {
