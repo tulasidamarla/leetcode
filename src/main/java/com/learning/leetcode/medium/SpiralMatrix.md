@@ -2,7 +2,7 @@
 
 - Given an m x n matrix, return all elements of the matrix in spiral order.
 
-    <img src="../images/spiral1.jpeg" alt="spiral" align="middle" width="70%">
+    <img src="../../images/spiral1.jpeg" alt="spiral" align="middle" width="70%">
 
 ### Solution
 
