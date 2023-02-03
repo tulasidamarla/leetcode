@@ -16,34 +16,28 @@ public class IsPalindrome {
 
     }
 
-    private static boolean isPalindrome(String s, int first, int last){
+    private static boolean isPalindrome(String s, int l, int r){
         //Base condition
-        if (first >= last){
+        if (l >= r){
             return true;
-        } else {
-            //remove characters other than letters and digits
-            if(!Character.isLetterOrDigit(s.charAt(first))){
-                first++;
-                return isPalindrome(s, first, last);
-            }
-            if(!Character.isLetterOrDigit(s.charAt(last))){
-                last--;
-                return isPalindrome(s, first, last);
-            }
-
-            //If chars not match return false
-            if (Character.toLowerCase(s.charAt(first)) != Character.toLowerCase(s.charAt(last))){
-                return false;
-            }
-
-            //If characters match then call isPalindrome on the substring
-            if(Character.toLowerCase(s.charAt(first)) == Character.toLowerCase(s.charAt(last))){
-                first++;
-                last--;
-                return isPalindrome(s, first, last);
-            }
         }
-        return true;
+
+        //move to next character if char is not a letter or digit
+        if(!Character.isLetterOrDigit(s.charAt(l))){
+            return isPalindrome(s, ++l, r);
+        }
+        if(!Character.isLetterOrDigit(s.charAt(r))){
+            return isPalindrome(s, l, --r);
+        }
+
+        //If chars do not match return false
+        if (Character.toLowerCase(s.charAt(l)) != Character.toLowerCase(s.charAt(r))){
+            return false;
+        }
+
+        //If previous condition is not success then it means chars match.
+        //Call isPalindrome recursively on the substring
+        return isPalindrome(s, ++l, --r);
     }
 
     static boolean isPalindromeIterative(String s) {
