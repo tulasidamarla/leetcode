@@ -1,4 +1,4 @@
-package com.learning.leetcode.recursive.easy;
+package com.learning.leetcode.recursive;
 
 /**
  * This method has time complexity of logn, as recursive calls are made on x*x.

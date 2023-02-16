@@ -1,4 +1,4 @@
-package com.learning.leetcode.recursive.easy;
+package com.learning.leetcode.recursive;
 
 /**
  *  Problem description can be found at https://leetcode.com/problems/valid-palindrome/
