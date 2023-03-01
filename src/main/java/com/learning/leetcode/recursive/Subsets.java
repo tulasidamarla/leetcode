@@ -8,7 +8,7 @@ import java.util.Set;
 public class Subsets {
 
     public static void main(String[] args) {
-        int[] nums = {4,4,4,1,4};
+        int[] nums = {1,2,3};
         List<List<Integer>> subsets = null;
 
     /*
@@ -23,7 +23,7 @@ public class Subsets {
         subsets = subsetsRec(nums,0);
         subsets.stream()
                 .forEach(subset -> {
-                    System.out.println(" duplicate list");
+                    System.out.println(" ");
                     subset.stream()
                             .forEach(System.out::print);
                 });
@@ -87,21 +87,21 @@ public class Subsets {
      * @return
      */
     private static List<List<Integer>> subsetsRec(int[] nums, int index){
-        List<List<Integer>> output = new ArrayList<>();
 
         if (index == nums.length) {
-            output.add(new ArrayList<>());
-            return output;
+            //return empty list
+            return new ArrayList<>(){{add(new ArrayList<>());}};
         }
 
         //Recursion to perform sub task
-        List<List<Integer>> newSubsets = subsetsRec(nums, index+1);
+        List<List<Integer>> partialAns = subsetsRec(nums, index+1);
 
+        List<List<Integer>> output = new ArrayList<>();
         // Add subsets to output
-        output.addAll(newSubsets);
+        output.addAll(partialAns);
 
         //Copy the subsets to a new list, add current element and add these lists out output
-        for(List<Integer> curr: newSubsets){
+        for(List<Integer> curr: partialAns){
             output.add(new ArrayList<>(curr) {{ add(nums[index]); }});
         }
 
