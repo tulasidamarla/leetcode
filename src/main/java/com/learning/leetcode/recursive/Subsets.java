@@ -27,6 +27,17 @@ public class Subsets {
                     subset.stream()
                             .forEach(System.out::print);
                 });
+
+        List<List<Integer>> ans = new ArrayList<>();
+        List<Integer> subset = new ArrayList<>();
+        subsetsRec2(nums,0,subset,ans);
+        ans.stream()
+                .forEach(subset2 -> {
+                    System.out.println(" ");
+                    subset2.stream()
+                            .forEach(System.out::print);
+                });
+
     /*subsets = subsetsBitmask(nums);
     subsets.stream()
             .forEach(subset -> {
@@ -108,6 +119,20 @@ public class Subsets {
         //only the final output is returned to calling method
         //all outputs returned from recursive calls are merged into the final output
         return output;
+    }
+
+    private static void subsetsRec2(int[] nums, int index, List<Integer> subset, List<List<Integer>> ans){
+        if (index >= nums.length){
+            //Add each subset to the answer at the end of the tree
+            ans.add(new ArrayList<>(subset));
+            return;
+        }
+        //Add an element to the subset
+        subset.add(nums[index]);
+        subsetsRec2(nums, index+1, subset, ans);
+        //remove the element from subset and proceed with next element
+        subset.remove(subset.size()-1);
+        subsetsRec2(nums, index+1, subset, ans);
     }
 
     static boolean isDuplicate(List<Integer> list1, List<Integer> list2) {
