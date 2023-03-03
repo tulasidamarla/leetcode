@@ -136,19 +136,7 @@ public class Subsets {
         subsetsRec2(nums, i+1, subset, ans);
     }
 
-    static boolean isDuplicate(List<Integer> list1, List<Integer> list2) {
-        // Optional quick test since size must match
-        if (list1.size() != list2.size()) {
-            return false;
-        }
-        List<Integer> work = new ArrayList(list2);
-        for (Integer element : list1) {
-            if (!work.remove(element)) {
-                return false;
-            }
-        }
-        return work.isEmpty();
-    }
+
 
     /**
      *
