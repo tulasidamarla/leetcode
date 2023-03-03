@@ -19,7 +19,7 @@ public class PowerXN {
         if (n == 1) {
             return x;
         }
-        if ((n & 1) == 0) // For even numbers. Event no check can also be written as n%2 === 0
+        if ((n & 1) == 0) // For even numbers. Even no check can also be written as n%2 == 0
             return pow1(x * x, n >>> 1); // can write n/2 instead of n >>> 1
         else // For odd numbers
             return x * pow1(x * x, n >>> 1);

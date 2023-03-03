@@ -26,6 +26,7 @@ public class IsPalindrome {
         if(!Character.isLetterOrDigit(s.charAt(l))){
             return isPalindrome(s, ++l, r);
         }
+        //move to previous character if char is not a letter or digit
         if(!Character.isLetterOrDigit(s.charAt(r))){
             return isPalindrome(s, l, --r);
         }

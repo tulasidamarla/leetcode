@@ -53,7 +53,6 @@ public class Permutations {
             result.add(subList);
         }
 
-
         for(int i = index; i < nums.length; i++){
             //swap integers
             swap(i, index, nums);
