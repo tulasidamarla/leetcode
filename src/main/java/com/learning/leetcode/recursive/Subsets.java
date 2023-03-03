@@ -20,13 +20,13 @@ public class Subsets {
                         .forEach(System.out::print);
             });*/
 
-        subsets = subsetsRec(nums,0);
+        /*subsets = subsetsRec(nums,0);
         subsets.stream()
                 .forEach(subset -> {
                     System.out.println(" ");
                     subset.stream()
                             .forEach(System.out::print);
-                });
+                });*/
 
         List<List<Integer>> ans = new ArrayList<>();
         List<Integer> subset = new ArrayList<>();
@@ -37,6 +37,7 @@ public class Subsets {
                     subset2.stream()
                             .forEach(System.out::print);
                 });
+        System.out.println("answer size -->" + ans.size());
 
     /*subsets = subsetsBitmask(nums);
     subsets.stream()
@@ -121,18 +122,18 @@ public class Subsets {
         return output;
     }
 
-    private static void subsetsRec2(int[] nums, int index, List<Integer> subset, List<List<Integer>> ans){
-        if (index >= nums.length){
+    private static void subsetsRec2(int[] nums, int i, List<Integer> subset, List<List<Integer>> ans){
+        if (i >= nums.length){
             //Add each subset to the answer at the end of the tree
             ans.add(new ArrayList<>(subset));
             return;
         }
-        //Add an element to the subset
-        subset.add(nums[index]);
-        subsetsRec2(nums, index+1, subset, ans);
-        //remove the element from subset and proceed with next element
+        //include ith element to the subset
+        subset.add(nums[i]);
+        subsetsRec2(nums, i+1, subset, ans);
+        //remove the ith element from subset and proceed with next element
         subset.remove(subset.size()-1);
-        subsetsRec2(nums, index+1, subset, ans);
+        subsetsRec2(nums, i+1, subset, ans);
     }
 
     static boolean isDuplicate(List<Integer> list1, List<Integer> list2) {
