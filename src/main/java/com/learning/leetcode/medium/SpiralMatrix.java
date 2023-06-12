@@ -11,46 +11,46 @@ public class SpiralMatrix {
         int right = matrix[0].length - 1;
         int bottom = matrix.length - 1;
 
-        while(left <= right && top <= bottom){
-            for(int i = left; i <= right ; i++){
+        while (left <= right && top <= bottom) {
+            for (int i = left; i <= right; i++) {
                 result.add(matrix[top][i]);
             }
             top++;
 
-            for(int i = top ; i <= bottom; i++){
+            for (int i = top; i <= bottom; i++) {
                 result.add(matrix[i][right]);
             }
             right--;
 
-            if (top <= bottom) {
-                for (int i = right; i >= left; i--) {
-                    result.add(matrix[bottom][i]);
-                }
-                bottom--;
-            }
+            // This test is need for single row/single column two dimensional arrays
+            if (!(left < right) || !(top < bottom))
+                break;
 
-            if (left <= right) {
-                for( int i = bottom; i >= top; i--){
-                    result.add(matrix[i][left]);
-                }
-                left++;
+            for (int i = right; i >= left; i--) {
+                result.add(matrix[bottom][i]);
             }
+            bottom--;
+
+            for (int i = bottom; i >= top; i--) {
+                result.add(matrix[i][left]);
+            }
+            left++;
         }
 
         return result;
     }
 
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         //Test case 1
-        int[][] matrix = new int[][]{{1,2,3},{4,5,6},{7,8,9}};
-        List<Integer> expected = List.of(1,2,3,6,9,8,7,4,5);
+        int[][] matrix = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        List<Integer> expected = List.of(1, 2, 3, 6, 9, 8, 7, 4, 5);
         List<Integer> result = spiralOrder(matrix);
         System.out.println("Test case 1 is successful: " + expected.equals(result));
 
         //Test case 2
-        matrix = new int[][]{{1,2,3,4},{5,6,7,8},{9,10,11,12}};
-        expected = List.of(1,2,3,4,8,12,11,10,9,5,6,7);
+        matrix = new int[][]{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
+        expected = List.of(1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7);
         result = spiralOrder(matrix);
         System.out.println("Test case 1 is successful: " + expected.equals(result));
     }
