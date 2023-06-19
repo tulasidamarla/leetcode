@@ -35,8 +35,8 @@ public class AddTwoNumbers {
         ListNode dummy = new ListNode(0); // creating an dummy list
         ListNode curr = dummy; // initialising an pointer
         int carry = 0; // initialising carry with 0 initial value
-        // while loop will run, until l1 OR l2 not reaches null OR if they both reaches null. But our carry has some value in it.
-        // We will add that as well into our list
+        // while loop will run, until l1 OR l2 not reaches null OR if they both reaches null.
+        // If carry has some value then iterate
         while(l1 != null || l2 != null || carry == 1){
             int sum = 0; // initialising sum
             if(l1 != null){ // adding l1 to our sum & moving l1

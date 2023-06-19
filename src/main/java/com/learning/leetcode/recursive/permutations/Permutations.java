@@ -1,4 +1,4 @@
-package com.learning.leetcode.recursive;
+package com.learning.leetcode.recursive.permutations;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,17 +13,18 @@ public class Permutations {
                     System.out.println(" ");
                     subset.forEach(System.out::print);
                 });
-        /*result = permutationsIterative(new int[]{1,2,3});
+        result = permutationsIterative(new int[]{1,2,3});
         System.out.println("Iterative o/p");
+        //TODO:  Not completed yet
         result.forEach(subset -> {
             System.out.println(" ");
             subset.forEach(System.out::print);
-        });*/
+        });
     }
 
-    private static List<List<Integer>> permutationsIterative(int[] nums){
+    private static List<List<Integer>> permutationsIterative(final int[] nums){
         //create final output
-        List<List<Integer>> output = new ArrayList<>();
+        final List<List<Integer>> output = new ArrayList<>();
         //TODO: not completed yet
         for(int i = 0; i < nums.length; i++){
             for(int j = i; j < nums.length ; j++){
@@ -43,28 +44,30 @@ public class Permutations {
      * space complexity is height of the tree. i.e. O(N)
      * Time complexity is n * n!
      *
-     * @param nums
-     * @param index
-     * @param result
+     * @param nums input array
+     * @param index position
+     * @param result result array
      */
     static void permutations(int[] nums, int index, List<List<Integer>> result){
-        if (index >= nums.length){
-            List<Integer> subList = Arrays.stream(nums).boxed().collect(Collectors.toList());
+        if (index == nums.length){
+            final List<Integer> subList = Arrays.stream(nums).boxed().collect(Collectors.toList());
             result.add(subList);
+            return;
         }
 
         for(int i = index; i < nums.length; i++){
             //swap integers
             swap(i, index, nums);
+            System.out.println("swapping " + i + " " + index);
             permutations(nums, index + 1, result);
             //swap integers back to keep the original array
             swap(i, index, nums);
         }
     }
 
-    static void swap(int fromIndex, int toIndex, int[] nums)
+    static void swap(final int fromIndex, final int toIndex, final int[] nums)
     {
-        int temp = nums[fromIndex];
+        final int temp = nums[fromIndex];
         nums[fromIndex] = nums[toIndex];
         nums[toIndex] = temp;
     }

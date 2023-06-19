@@ -3,6 +3,10 @@ package com.learning.leetcode.medium;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ *
+*/
 public class SpiralMatrix {
     public static List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> result = new ArrayList<>();
@@ -22,7 +26,7 @@ public class SpiralMatrix {
             }
             right--;
 
-            // This test is need for single row/single column two dimensional arrays
+            // This test is needed for single row/single column arrays
             if (!(left < right) || !(top < bottom))
                 break;
 

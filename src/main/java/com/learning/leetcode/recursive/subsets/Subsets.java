@@ -1,4 +1,4 @@
-package com.learning.leetcode.recursive;
+package com.learning.leetcode.recursive.subsets;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -20,17 +20,20 @@ public class Subsets {
                         .forEach(System.out::print);
             });*/
 
-        /*subsets = subsetsRec(nums,0);
+        subsets = subsetsRec(nums,0);
         subsets.stream()
                 .forEach(subset -> {
                     System.out.println(" ");
                     subset.stream()
                             .forEach(System.out::print);
-                });*/
+                });
+        System.out.println("");
 
         List<List<Integer>> ans = new ArrayList<>();
         List<Integer> subset = new ArrayList<>();
         subsetsRec2(nums,0,subset,ans);
+        System.out.println("");
+        System.out.println("Recursive approach 2");
         ans.stream()
                 .forEach(subset2 -> {
                     System.out.println(" ");
@@ -123,7 +126,7 @@ public class Subsets {
     }
 
     private static void subsetsRec2(int[] nums, int i, List<Integer> subset, List<List<Integer>> ans){
-        if (i >= nums.length){
+        if (i == nums.length){
             //Add each subset to the answer at the end of the tree
             ans.add(new ArrayList<>(subset));
             return;

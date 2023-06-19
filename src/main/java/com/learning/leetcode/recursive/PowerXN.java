@@ -9,6 +9,7 @@ public class PowerXN {
         System.out.println(2>>1);
         System.out.println(pow2(2, 5) == 32.0);
         System.out.println(pow2(2, 2) == 4.0);
+        System.out.println(pow2(2, 4) == 16.0);
     }
 
     static double pow1(double x, int n) {
