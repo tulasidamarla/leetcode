@@ -1,4 +1,4 @@
-package com.learning.leetcode.recursive.permutations;
+package com.learning.leetcode.recursive.medium.permutations;
 
 import java.util.*;
 import java.util.stream.Collectors;

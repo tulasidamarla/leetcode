@@ -1,11 +1,11 @@
-package com.learning.leetcode.recursive.subsets;
+package com.learning.leetcode.recursive.medium.subsets;
 
 import java.util.*;
 
 public class SubsetsWithoutDuplicates {
 
     public static void main(String[] args) {
-        List<List<Integer>> ans = subsetsWithDup(new int[]{4,1,4,4,4});
+        List<List<Integer>> ans = subsetsWithoutDup(new int[]{4,1,4,4,4});
         ans.stream()
                 .forEach(subset2 -> {
                     System.out.println(" ");
@@ -14,7 +14,7 @@ public class SubsetsWithoutDuplicates {
                 });
     }
 
-    private static List<List<Integer>> subsetsWithDup(int[] nums) {
+    private static List<List<Integer>> subsetsWithoutDup(int[] nums) {
         List<List<Integer>> ans = new ArrayList<>();
         List<Integer> subset = new ArrayList<>();
         //array sorting is required to skip continuous elements with same value

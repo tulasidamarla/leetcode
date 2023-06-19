@@ -1,4 +1,4 @@
-package com.learning.leetcode.medium;
+package com.learning.leetcode.arrays.medium;
 
 /**
  * Definition for singly-linked list.

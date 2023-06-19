@@ -1,9 +1,7 @@
-package com.learning.leetcode.recursive.subsets;
+package com.learning.leetcode.recursive.medium.subsets;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class Subsets {
 

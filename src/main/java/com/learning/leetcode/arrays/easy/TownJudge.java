@@ -1,4 +1,4 @@
-package com.learning.leetcode.easy;
+package com.learning.leetcode.arrays.easy;
 
 public class TownJudge {
 

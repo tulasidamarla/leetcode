@@ -1,4 +1,4 @@
-package com.learning.leetcode.recursive.combinations;
+package com.learning.leetcode.recursive.medium.combinations;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +34,7 @@ public class Combinations {
             return;
         }
 
-        if (index+1 <= nums.length) {
+        if (index < nums.length) {
             subset.add(nums[index]);
             combinations(nums, k, index + 1, subset, result);
             subset.remove(subset.size() - 1);
