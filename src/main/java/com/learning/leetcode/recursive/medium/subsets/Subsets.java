@@ -7,53 +7,19 @@ public class Subsets {
 
     public static void main(String[] args) {
         int[] nums = {1,2,3};
-        List<List<Integer>> subsets = null;
-
-    /*
-    subsets = subsetsIterative(nums);
-    subsets.stream()
-            .forEach(subset -> {
-                System.out.println(" ");
-                subset.stream()
-                        .forEach(System.out::print);
-            });*/
-
-        subsets = subsetsRec(nums,0);
-        subsets.stream()
-                .forEach(subset -> {
-                    System.out.println(" ");
-                    subset.stream()
-                            .forEach(System.out::print);
-                });
-        System.out.println("");
 
         List<List<Integer>> ans = new ArrayList<>();
         List<Integer> subset = new ArrayList<>();
-        subsetsRec2(nums,0,subset,ans);
+        subsetsRec(nums,0,subset,ans);
         System.out.println("");
-        System.out.println("Recursive approach 2");
+        System.out.println("Recursive approach");
         ans.stream()
                 .forEach(subset2 -> {
                     System.out.println(" ");
                     subset2.stream()
                             .forEach(System.out::print);
                 });
-        System.out.println("answer size -->" + ans.size());
 
-    /*subsets = subsetsBitmask(nums);
-    subsets.stream()
-            .forEach(subset -> {
-                System.out.println(" ");
-                subset.stream()
-                        .forEach(System.out::print);
-            });*/
-    /*subsets = subsetsBinary(nums);
-    subsets.stream()
-            .forEach(subset -> {
-                System.out.println(" ");
-                subset.stream()
-                        .forEach(System.out::print);
-            });*/
     }
 
     /**
@@ -91,39 +57,17 @@ public class Subsets {
         return output;
     }
 
+
     /**
-     * Time complexity O(N2^N) to generate all subsets and then copy them into output list.
-     * Space complexity O(N) using O(N) to maintain current subset
+     *  Time complexity O(N2^N) to generate all subsets and then copy them into output list.
+     *  Space complexity O(N) using O(N) to maintain current subset
      *
      * @param nums
-     * @param index
-     * @return
+     * @param i
+     * @param subset
+     * @param ans
      */
-    private static List<List<Integer>> subsetsRec(int[] nums, int index){
-
-        if (index == nums.length) {
-            //return empty list
-            return new ArrayList<>(){{add(new ArrayList<>());}};
-        }
-
-        //Recursion to perform sub task
-        List<List<Integer>> partialAns = subsetsRec(nums, index+1);
-
-        List<List<Integer>> output = new ArrayList<>();
-        // Add subsets to output
-        output.addAll(partialAns);
-
-        //Copy the subsets to a new list, add current element and add these lists out output
-        for(List<Integer> curr: partialAns){
-            output.add(new ArrayList<>(curr) {{ add(nums[index]); }});
-        }
-
-        //only the final output is returned to calling method
-        //all outputs returned from recursive calls are merged into the final output
-        return output;
-    }
-
-    private static void subsetsRec2(int[] nums, int i, List<Integer> subset, List<List<Integer>> ans){
+    private static void subsetsRec(int[] nums, int i, List<Integer> subset, List<List<Integer>> ans){
         if (i == nums.length){
             //Add each subset to the answer at the end of the tree
             ans.add(new ArrayList<>(subset));
@@ -131,10 +75,10 @@ public class Subsets {
         }
         //include ith element to the subset
         subset.add(nums[i]);
-        subsetsRec2(nums, i+1, subset, ans);
+        subsetsRec(nums, i+1, subset, ans);
         //remove the ith element from subset and proceed with next element
         subset.remove(subset.size()-1);
-        subsetsRec2(nums, i+1, subset, ans);
+        subsetsRec(nums, i+1, subset, ans);
     }
 
 

@@ -6,13 +6,18 @@ public class WordSearch {
 
     public static void main(String[] args) {
         char[][] board = {{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};
-        String word = "ABCCED";
-        boolean wordFound = false;
+        searchWord(board, "ABCCED");
+        searchWord(board, "FCEE");
+    }
+
+    private static void searchWord(char[][] board, String word){
         int sr = -1;
         int sc = -1;
+        boolean wordFound = false;
         for(int i=0; i< board.length; i++){
             for(int j=0; j < board[0].length; j++){
                 if(board[i][j] == word.charAt(0)){
+                    //Search recursive function is called from every row/column
                     if(search(i,j,board,word,0)){
                         wordFound = true;
                         sr = i;
