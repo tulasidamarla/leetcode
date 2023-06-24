@@ -12,14 +12,15 @@ public class FloodFill {
         System.out.println("Initial image");
         Arrays.stream(image)
                 .forEach(row -> System.out.println(Arrays.toString(row)));
-        flood(0, 0, image, image[startingRow][startingColumn], newColor);
+        int oldColor = image[startingRow][startingColumn];
+        flood(0, 0, image, oldColor, newColor);
         System.out.println("Post flood fill image");
         Arrays.stream(image)
                 .forEach(row -> System.out.println(Arrays.toString(row)));
     }
 
     private static void flood(int i, int j, int[][] image, int oldColor, int newColor) {
-        if (i < 0 || j < 0 || i >= image.length || j >= image[0].length || image[i][j] == newColor || image[i][j] != oldColor) {
+        if (i < 0 || j < 0 || i == image.length || j == image[0].length || image[i][j] == newColor || image[i][j] != oldColor) {
             return;
         }
         image[i][j] = newColor;

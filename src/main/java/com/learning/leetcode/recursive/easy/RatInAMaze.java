@@ -19,7 +19,7 @@ public class RatInAMaze {
         if (i == n - 1 && j == n - 1) {
             result.add(String.join("", path));
         } else if (!(i < 0 || j < 0 || i == n || j == n || arr[i][j] == 0)) {
-            //Need this step to stop moving between left and right
+            //Mark visited node with 0 to stop moving between left and right
             arr[i][j] = 0;
             //Down
             path.add("D");
