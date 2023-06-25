@@ -50,7 +50,8 @@ public class Permutations {
      */
     static void permutations(int[] nums, int index, List<List<Integer>> result){
         if (index == nums.length){
-            final List<Integer> subList = Arrays.stream(nums).boxed().collect(Collectors.toList());
+            final List<Integer> subList = new ArrayList<>();
+            Arrays.stream(nums).forEach(subList::add);
             result.add(subList);
             return;
         }
@@ -58,7 +59,6 @@ public class Permutations {
         for(int i = index; i < nums.length; i++){
             //swap integers
             swap(i, index, nums);
-            System.out.println("swapping " + i + " " + index);
             permutations(nums, index + 1, result);
             //swap integers back to keep the original array
             swap(i, index, nums);
