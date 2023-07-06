@@ -1,4 +1,4 @@
-package com.learning.leetcode.recursive;
+package com.learning.leetcode.recursive.hard;
 
 import java.util.*;
 
