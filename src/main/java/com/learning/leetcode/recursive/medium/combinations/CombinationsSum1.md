@@ -62,3 +62,7 @@ public class CombinationsSum1 {
     }
 }
 ```
+
+## Complexity
+- Time complexity is O(2<sup>k</sup>) where k is the sum of no of combinations with each of the elements of the array.
+- Space complexity is the length of the longest combination.
