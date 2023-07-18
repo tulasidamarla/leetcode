@@ -41,7 +41,7 @@ public class PermutationsWithoutDuplicates {
             result.add(subList);
         }
 
-        //position tracker is used to not use a value from the same position twice
+        //position tracker is used for not using a value from the same position twice
         Set<Integer> posTracker = new HashSet<>();
         for(int i=index; i < nums.length; i++){
             if(posTracker.contains(nums[i])){

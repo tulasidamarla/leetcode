@@ -12,6 +12,7 @@ public class FloodFill {
         System.out.println("Initial image");
         Arrays.stream(image)
                 .forEach(row -> System.out.println(Arrays.toString(row)));
+        System.out.println("Starting point: " + startingRow + ", " + startingColumn);
         int oldColor = image[startingRow][startingColumn];
         flood(0, 0, image, oldColor, newColor);
         System.out.println("Post flood fill image");

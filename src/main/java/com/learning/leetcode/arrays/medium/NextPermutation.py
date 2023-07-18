@@ -12,7 +12,7 @@ def nextPermutation(nums: List[int]) -> None:
     if i >= 0:
         j = len(nums) - 1
         # In this example j stops at 3 because the condition fails at last index itself
-        while nums[j] <= nums[i]:
+        while nums[i] >= nums[j]:
             j -= 1
         # Swap values at indexes i and j
         # Now the sequence is 2 3 5 4 1

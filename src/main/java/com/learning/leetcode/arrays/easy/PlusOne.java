@@ -24,7 +24,7 @@ public class PlusOne {
             }
             digits[i] = 0;
         }
-        System.out.println(Arrays.toString(digits));
+        //System.out.println(Arrays.toString(digits));
         // This is only for the scenarios like [9],[9,9],[9,9,9] etc.
         digits = new int[digits.length + 1];
         digits[0] = 1;

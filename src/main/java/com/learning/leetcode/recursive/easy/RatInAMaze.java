@@ -1,7 +1,8 @@
 package com.learning.leetcode.recursive.easy;
 
-import java.util.*;
-import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class RatInAMaze {
     public static void main(String[] args) {

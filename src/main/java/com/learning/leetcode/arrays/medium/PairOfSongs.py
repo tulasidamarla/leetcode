@@ -20,6 +20,9 @@ def main():
     time = [60, 60, 60]
     print("Given Array : ", time)
     print("No of pairs divisible by 60 : ", numPairsDivisibleBy60(time))
+    time = [60, 60, 60, 60]
+    print("Given Array : ", time)
+    print("No of pairs divisible by 60 : ", numPairsDivisibleBy60(time))
 
 
 main()
