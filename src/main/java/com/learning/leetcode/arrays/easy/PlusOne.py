@@ -6,6 +6,8 @@ def plusOne(digits: List[int]) -> List[int]:
         if digits[i] < 9:
             digits[i] += 1
             return digits
+        # Set current value to 0 if 9 and
+        # increment digits[i] in the next iteration
         digits[i] = 0
     digits = [0] * (len(digits) + 1)
     digits[0] = 1
