@@ -6,12 +6,10 @@ def containerWithMaxWater(heights: List[int]) -> int:
     right_index = len(heights) - 1
     maxArea = 0
     while left_index < right_index:
-        left_height = heights[left_index]
-        right_height = heights[right_index]
-        min_height = min(left_height, right_height)
+        min_height = min(heights[left_index], heights[right_index])
         curr_area = (right_index - left_index) * min_height
         maxArea = max(curr_area, maxArea)
-        if left_height < right_height:
+        if heights[left_index] < heights[right_index]:
             left_index += 1
         else:
             right_index -= 1
