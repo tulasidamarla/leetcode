@@ -3,14 +3,14 @@ from typing import List
 
 def majorityElement(nums: List[int]) -> int:
     candidate = 0
-    votes = 0
+    count = 0
     for num in nums:
-        if votes == 0:
+        if count == 0:
             candidate = num
         if candidate == num:
-            votes += 1
+            count += 1
         else:
-            votes -= 1
+            count -= 1
     return candidate
 
 

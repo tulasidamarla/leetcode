@@ -21,7 +21,7 @@ public class FloodFill {
     }
 
     private static void flood(int i, int j, int[][] image, int oldColor, int newColor) {
-        if (i < 0 || j < 0 || i == image.length || j == image[0].length || image[i][j] == newColor || image[i][j] != oldColor) {
+        if (i < 0 || j < 0 || i == image.length || j == image[0].length  || image[i][j] != oldColor) {
             return;
         }
         image[i][j] = newColor;
