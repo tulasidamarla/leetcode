@@ -1,5 +1,6 @@
 ## Problem statement
-- Given an integer array nums and an integer k, return true if it is possible to divide this array into k non-empty subsets whose sums are all equal.
+- Given an integer array nums and an integer k, return true if it is possible to divide this array into k 
+  non-empty subsets whose sums are all equal.
 ```
 Example 1:
 
@@ -41,7 +42,8 @@ public class PartitionKEqualSubsets {
        }
        System.out.println("Equal subsets size " + sum/k);
 
-       boolean result = partitionKSubsets(0, 1,0, sum/k, k, nums, new HashMap<>());
+       boolean result = partitionKSubsets(0, 1, 0, sum/k, k, nums, new HashMap<>());
+       boolean result = partitionKSubsets(0, 1, 0, sum/k, k, nums, new HashMap<>());
        System.out.println("No of equal subsets possible " + result);
 
         int[] nums2 = new int[]{1,2,3,4};

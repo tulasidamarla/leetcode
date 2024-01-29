@@ -5,13 +5,13 @@ def threeSum(nums: List[int]) -> List[List[int]]:
     result = []
     nums.sort()
     n = len(nums)
-    i = 0
-    while i < n:
+    for i in range(n):
+        if i > 0 and nums[i] == nums[i-1]:
+            i += 1
         start = i + 1
         end = n - 1
-        target = -nums[i]
         while start < end:
-            if nums[start] + nums[end] == target:
+            if nums[i] + nums[start] + nums[end] == 0:
                 result.append([nums[i], nums[start], nums[end]])
                 start += 1
                 end -= 1
@@ -19,13 +19,10 @@ def threeSum(nums: List[int]) -> List[List[int]]:
                     start += 1
                 while start < end and nums[end] == nums[end - 1]:
                     end -= 1
-            elif nums[start] + nums[end] > target:
+            elif nums[start] + nums[end] > 0:
                 end -= 1
             else:
                 start += 1
-            while i + 1 < n and nums[i] == nums[i+1]:
-                i += 1
-        i += 1
     return result
 
 

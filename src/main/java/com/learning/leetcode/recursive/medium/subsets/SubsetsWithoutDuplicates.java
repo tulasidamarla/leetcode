@@ -34,7 +34,6 @@ public class SubsetsWithoutDuplicates {
         //remove element from the subset
         subset.remove(subset.size()-1);
         //skip index if continuous elements have same value
-        Set<Integer> posTracker = new HashSet<>();
         while(index+1 < nums.length && nums[index] == nums[index+1])
             index++;
         subsets(nums, index+1, subset, ans);

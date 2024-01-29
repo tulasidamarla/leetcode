@@ -13,30 +13,7 @@ public class Permutations {
                     System.out.println(" ");
                     subset.forEach(System.out::print);
                 });
-        result = permutationsIterative(new int[]{1,2,3});
-        System.out.println("Iterative o/p");
-        //TODO:  Not completed yet
-        result.forEach(subset -> {
-            System.out.println(" ");
-            subset.forEach(System.out::print);
-        });
     }
-
-    private static List<List<Integer>> permutationsIterative(final int[] nums){
-        //create final output
-        final List<List<Integer>> output = new ArrayList<>();
-        //TODO: not completed yet
-        for(int i = 0; i < nums.length; i++){
-            for(int j = i; j < nums.length ; j++){
-                swap(i, j, nums);
-                output.add(Arrays.stream(nums).boxed().collect(Collectors.toList()));
-                swap(i, j, nums);
-            }
-        }
-
-        return output;
-    }
-
 
     /**
      * This solution uses backtracking.
